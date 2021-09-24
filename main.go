@@ -1,33 +1,16 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
+	"time"
 )
 
 func main() {
-	welcome := "Welcome to my Pizza App"
-	welcome2 := "Please rate our pizza between 1 and 10"
-	fmt.Println(welcome + "\n" + welcome2)
+	welcome := "Welcome to Time Handling"
+	fmt.Println(welcome)
 
-	reader := bufio.NewReader(os.Stdin)
+	presentTime := time.Now()
 
-	//  \n to stop reading
-	input, _ := reader.ReadString('\n')
-
-	fmt.Println("Thanks for rating, ", input)
-
-	// ! trim space or enter
-	trimInput := strings.TrimSpace(input)
-	numRating, err := strconv.ParseFloat(trimInput, 64)
-
-	if err != nil {
-		fmt.Println("Error: ", err)
-	} else {
-		fmt.Println("Added 1 to your rating: ", numRating+1)
-	}
-
+	fmt.Println(presentTime)
+	fmt.Println(presentTime.Format("01/02/2006, Monday, 15:04:05, MST"))
 }
